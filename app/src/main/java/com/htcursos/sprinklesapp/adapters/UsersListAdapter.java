@@ -62,8 +62,6 @@ public class UsersListAdapter extends ArrayAdapter<User>{
         }
         return convertView;
     }
-
-
     //Local onde guardamos as views (todas as referencias)
    public class ViewHolder{
 

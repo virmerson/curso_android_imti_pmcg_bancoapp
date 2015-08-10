@@ -9,7 +9,7 @@ import se.emilsjolander.sprinkles.annotations.Key;
 import se.emilsjolander.sprinkles.annotations.Table;
 
 /**
- * Created by mac on 31/07/15.
+ * Created by Virmerson on 31/07/15.
  */
 @Table("User")
 public class User extends Model implements Serializable {

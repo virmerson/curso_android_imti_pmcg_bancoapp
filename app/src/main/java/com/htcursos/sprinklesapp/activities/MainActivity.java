@@ -54,9 +54,12 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 //Acessando e Excluindo do banco
-                                adapter.getItem(position).delete();
+                                User user =  adapter.getItem(position);
+                                user.delete();
+
                                 //Excluindo da lista do adapter
                                 adapter.users.remove(position);
+
                                 //Ei Adpter, mudamos a lista!
                                 adapter.notifyDataSetChanged(); //Tá bom, vou recarregar!
 
@@ -72,9 +75,11 @@ public class MainActivity extends AppCompatActivity {
         userListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                //Carregando a Intent para Fazer o Registro ou Alteração
                 Intent irParaRegister = new Intent(MainActivity.this, RegisterUserActivity.class);
-                irParaRegister.putExtra(RegisterUserActivity.USER_KEY, adapter.getItem(position) );
+                //Passando como parametro para a tela de cadastro um item clicado
+                User user =   adapter.getItem(position);
+                irParaRegister.putExtra(RegisterUserActivity.USER_KEY,user);
                 startActivity(irParaRegister);
 
             }
